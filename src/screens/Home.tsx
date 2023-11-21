@@ -126,11 +126,13 @@ const Home: React.FC = (): ReactElement => {
                             <StyledText style={{ color: "#105ea4", marginVertical: 2, }} familyStyle={'Bold'}>{item.title}</StyledText>
                             <StyledText style={{ color: "#000000", marginVertical: 2, }}>{item.subTitle}</StyledText>
                             <Pressable 
-                                style={{
-                                    backgroundColor: "#F7941D",
-                                    alignSelf: "flex-start",
-                                    marginVertical: 2,                            
-                                }}>
+                                style={
+                                    ({pressed}) => [{
+                                        backgroundColor: pressed ? "#f7b21d" : "#F7941D",
+                                        alignSelf: "flex-start",
+                                        marginVertical: 2,                            
+                                    }]                                    
+                                }>
                                 <StyledText style={{ color: "#ffffff", padding: 4 }}>SELECT</StyledText>
                             </Pressable>
                         </View>
@@ -180,6 +182,8 @@ const HomeStyles = StyleSheet.create({
         width: '100%',
         height: '100%',
         resizeMode: 'contain',
+        alignContent: "flex-end",
+        // borderWidth: 2
         // position: "absolute",
         // top: 0,
         // bottom: 0,
