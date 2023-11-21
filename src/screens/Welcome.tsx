@@ -59,68 +59,35 @@ const Welcome: React.FC = (): ReactElement => {
                         </View>
                     )
                 }
-          </Pressable>
-
-
-            {/* <View 
-                style={{
-                    backgroundColor: "#F7941D",
-                    borderRadius: 10,
-                    marginTop : 5,
-                }}>
-                <Pressable
-                    style={[
-                        WelcomeStyles.deliverMeBox, {
-                        flexDirection: "row",
-                        alignContent:"center",
-                        alignItems:"center",
-                        alignSelf:"center",
-                        backgroundColor: "#F7941D",
-                        borderWidth: 0 ,
-                    }]} >
-                <Image
-                    style={WelcomeStyles.deliveryImage}
-                    source={require("../../assets/images/delivery_btn_icon.png")}
-                />
-                <StyledText style={WelcomeStyles.deliverMeButton} familyStyle={'Bold'}>
-                    DELIVER TO ME
-                </StyledText>
-                </Pressable>
-            </View> */}
+            </Pressable>
             
-                <Pressable 
-                    style={
-                        ({pressed}) => [{
-                            borderRadius: 10,
-                            backgroundColor: pressed ? "#f7b21d" : "#F7941D",   
-                        }]
-                    }>
-                    {
-                        ({pressed}) => (
-                            <View
+            <Pressable 
+                style={
+                    ({pressed}) => [{
+                        borderRadius: 10,
+                        backgroundColor: pressed ? "#f7b21d" : "#F7941D",   
+                    }]
+                }>
+                {
+                    ({pressed}) => (
+                        <View
+                            style={[
+                                WelcomeStyles.deliverMeBox, {
+                                    backgroundColor: pressed ? "#f7b21d" : "#F7941D",
+                            }]} >
+                            <Image
                                 style={[
-                                    WelcomeStyles.deliverMeBox, {
-                                        flexDirection: "row",
-                                        alignContent:"center",
-                                        alignItems:"center",
-                                        alignSelf:"center",
-                                        backgroundColor: pressed ? "#f7b21d" : "#F7941D",
-                                        borderWidth: 0 ,
-                                }]} >
-                                <Image
-                                    style={[
-                                        WelcomeStyles.deliveryImage, {
-
-                                        }]}
-                                    source={require("../../assets/images/delivery_btn_icon.png")}
-                                />
-                                <StyledText style={WelcomeStyles.deliverMeButton} familyStyle={'Bold'}>
-                                    DELIVER TO ME
-                                </StyledText>
-                            </View>
-                        )
-                    }
-                </Pressable>
+                                    WelcomeStyles.deliveryImage
+                                ]}
+                                source={require("../../assets/images/delivery_btn_icon.png")}
+                            />
+                            <StyledText style={WelcomeStyles.deliverMeButton} familyStyle={'Bold'}>
+                                DELIVER TO ME
+                            </StyledText>
+                        </View>
+                    )
+                }
+            </Pressable>
         </View>
         
 
@@ -211,12 +178,17 @@ const WelcomeStyles = StyleSheet.create({
   deliverMeBox: {
     paddingHorizontal: 20,
     paddingVertical: RFValue(5),
+    flexDirection: "row",
+    alignContent:"center",
+    alignItems:"center",
+    alignSelf:"center",
   },
   deliverMeButton: {
     padding: "1.3%",
     color: "#ffffff",
     fontSize: RFValue(20),
     borderRadius: 10,
+    paddingLeft: 12
   },
   donateBox:{
     paddingHorizontal: 20,

@@ -5,13 +5,14 @@ import {
 
 import Welcome from './src/screens/Welcome';
 import Register from './src/screens/Register';
+import Home from './src/screens/Home';
 
 function App(): JSX.Element {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {/* Later, we will use Navigation and implement the logic as per the authentication. */}
-      <Welcome />
+     {/* <Welcome /> */}
       {/* <Register /> */}
+      <Home />
     </SafeAreaView>
   );
 }
