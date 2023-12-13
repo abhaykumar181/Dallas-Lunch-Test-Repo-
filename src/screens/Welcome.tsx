@@ -14,7 +14,7 @@ import { Pressable } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 
-const Welcome: React.FC = (): ReactElement => {
+const Welcome: React.FC<{ navigation: any }> = ({navigation}): ReactElement => {
   const isDarkMode = useColorScheme() === "dark";
   const bG = require('../../assets/images/delivery_screen_bg.png');
 
@@ -62,6 +62,7 @@ const Welcome: React.FC = (): ReactElement => {
             </Pressable>
             
             <Pressable 
+                onPress={() => navigation.navigate('Home')}
                 style={
                     ({pressed}) => [{
                         borderRadius: 10,

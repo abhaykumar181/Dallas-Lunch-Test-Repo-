@@ -15,7 +15,7 @@ import StyledText from "../components/styled/StyledText";
 import { RFValue } from "react-native-responsive-fontsize";
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 
-const Home: React.FC = (): ReactElement => {
+const Home: React.FC<{ navigation: any }> = ({navigation}): ReactElement => {
   const isDarkMode = useColorScheme() === "dark";
   const bG = require('../../assets/images/delivery_screen_bg.png');
 
@@ -64,7 +64,7 @@ const Home: React.FC = (): ReactElement => {
         {/* Header */}
         <View style={HomeStyles.header} >            
             <View>
-                <Pressable onPress={ () => { console.log('Home screen Back Button Pressed.'); }}>
+                <Pressable onPressOut={() => navigation.navigate('Welcome')}>
                 {
                     ({pressed}) => (
                         <StyledText
@@ -108,6 +108,7 @@ const Home: React.FC = (): ReactElement => {
 
         <FlatList
             data={MenuItems}
+            showsVerticalScrollIndicator={false}
             renderItem={({ item }: { item: ItemsType }): ReactElement => (
                 
                 <View style={{padding: 10, flexDirection: "row",}}>
@@ -126,7 +127,7 @@ const Home: React.FC = (): ReactElement => {
                             <StyledText style={{ color: "#105ea4", marginVertical: 2, }} familyStyle={'Bold'}>{item.title}</StyledText>
                             <StyledText style={{ color: "#000000", marginVertical: 2, }}>{item.subTitle}</StyledText>
                             <Pressable 
-                                style={
+                                                            style={
                                     ({pressed}) => [{
                                         backgroundColor: pressed ? "#f7b21d" : "#F7941D",
                                         alignSelf: "flex-start",
@@ -172,7 +173,7 @@ const HomeStyles = StyleSheet.create({
         position: "absolute",
         left: 0,
         right: 0,
-        alignItems: "center",
+        alignItems: "center",   
     },
     menuHeaderBox: {
         padding: 15
